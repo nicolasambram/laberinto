@@ -1,13 +1,13 @@
 {
-    "name": "Laberinto",
+    "name": "Duck plataform®",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "animation": "*"
     },
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md",
         "assets.json",
         "tilemap.g.jres",
         "tilemap.g.ts",
