@@ -22,5 +22,12 @@ namespace myImages {
         return null;
     })
 
+    helpers._registerFactory("json", function(name: string) {
+        switch(helpers.stringTrim(name)) {
+
+        }
+        return null;
+    })
+
 }
 // Código generado automáticamente. No editar.

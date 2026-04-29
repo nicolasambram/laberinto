@@ -56,7 +56,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`miMosaico4`, function (sprite
         4444444222222222224444442244444444444444444444422222222222444444224444444444444444444442222222222244444422444444444444444444444222222222224444442244444444444444
         4444444442222222224444422444444444444444444444444222222222444442244444444444444444444444422222222244444224444444444444444444444442222222224444422444444444444444
         4444444442222222444444222244444444444444444444444222222244444422224444444444444444444444422222224444442222444444444444444444444442222222444444222244444444444444
-        4444444422922222222442222224444444444444444444442292222222244222222444444444444444444444229222222224422222244444444444444444444422922222222442222224444444444444
+        4444444422222222222442222224444444444444444444442222222222244222222444444444444444444444222222222224422222244444444444444444444422222222222442222224444444444444
         4444444444222222222244422444444444442444444444444422222222224442244444444444244444444444442222222222444224444444444424444444444444222222222244422444444444442444
         4444444422222222222442222224444444442444444444442222222222244222222444444444244444444444222222222224422222244444444424444444444422222222222442222224444444442444
         4442444222222222222422222222444444422244444244422222222222242222222244444442224444424442222222222224222222224444444222444442444222222222222422222222444444422244
@@ -618,6 +618,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     tiles.setCurrentTilemap(tilemap`nivel2`)
     mySprite.setPosition(568, 120)
+    mySprite2.setPosition(568, 120)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, function (sprite, location) {
     scene.setBackgroundImage(img`
@@ -1001,7 +1002,51 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`miMosaico7`, function (sprite
     game.splash("Nivel 1")
     tiles.setCurrentTilemap(tilemap`nivel1`)
     mySprite.setPosition(10, 0)
-    mySprite2.setPosition(10, 0)
+    mySprite2.setPosition(930, 67)
+})
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite2.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+    mySprite2.setPosition(99999999, 40590954)
+    game.splash("Mono ha sido teletransportado a el ultimo nivel")
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite2.setImage(img`
+        . . . . f f f f f . . . . . . . 
+        . . . f e e e e e f . . . . . . 
+        . . f d d d d e e e f . . . . . 
+        . c d f d d f d e e f f . . . . 
+        . c d f d d f d e e d d f . . . 
+        c d e e d d d d e e b d c . . . 
+        c d d d d c d d e e b d c . f f 
+        c c c c c d d d e e f c . f e f 
+        . f d d d d d e e f f . . f e f 
+        . . f f f f f e e e e f . f e f 
+        . . . . f e e e e e e e f f e f 
+        . . . f e f f e f e e e e f f . 
+        . . . f e f f e f e e e e f . . 
+        . . . f d b f d b f f e f . . . 
+        . . . f d d c d d b b d f . . . 
+        . . . . f f f f f f f f f . . . 
+        `)
+    game.splash("Mono esta volviendo")
+    mySprite2.setPosition(50, 50)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`miMosaico`, function (sprite, location) {
     scene.setBackgroundImage(img`
@@ -1126,7 +1171,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`miMosaico`, function (sprite,
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         `)
-    game.splash("Nivel -1")
+    game.splash("Nivel -1", "")
     tiles.setCurrentTilemap(tilemap`nivel-1`)
     mySprite.setPosition(10, 90)
     mySprite2.setPosition(10, 90)
@@ -1680,7 +1725,7 @@ scene.cameraFollowSprite(mySprite)
 tiles.setCurrentTilemap(tilemap`nivel1`)
 mySprite.ay = 500
 mySprite.setPosition(10, 0)
-mySprite2.setPosition(10, 0)
+mySprite2.setPosition(930, 67)
 mySprite2.ay = 800
 forever(function () {
     if (controller.A.isPressed()) {
